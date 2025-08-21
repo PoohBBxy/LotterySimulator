@@ -962,6 +962,38 @@ $$('#purchase-controls .purchase-card').forEach(btn => {
 });
 window.addEventListener('keydown', e => { if (e.code === 'Space' && !e.target.closest('button, input, .modal, select')) { e.preventDefault(); $('#btnDraw1')?.click(); } if (e.code === 'Escape' && modalContainer.children.length > 0) modalContainer.innerHTML = ''; });
 
+// --- MODIFICATION START ---
+function showAnnouncement() {
+    // Check if the user has already acknowledged the announcement
+    if (localStorage.getItem('lottery.announcementSeen') === 'true') {
+        return;
+    }
+
+    const content = `
+    <div class="announcement-body">
+        <p>欢迎使用抽奖模拟器！</p>
+        <ul>
+            <li><strong>数据存储:</strong> 所有抽奖记录、积分、钥匙和设置都保存在您的 <span class="text-danger">本地浏览器缓存中，不收集您的任何个人隐私或数据</span> 。清除浏览器数据将重置所有内容。</li>
+            <li><strong>仅供娱乐:</strong> 本页面所有功能仅为模拟和娱乐目的，<span class="text-danger">不涉及任何充值、盈利行为，不涉及任何赌博、博彩等违反法律的行为。模拟器不会以任何形式影响您的游戏账号</span>，所有抽奖结果和兑换物品都不会发往游戏仓库。</li>
+            <li><strong>自定义配置:</strong> 您可以通过 "全局设置"、"编辑奖品" 等按钮 <span class="text-danger">完全自定义奖池、概率和兑换规则</span>，打造您自己的抽奖活动。</li>
+            <li><strong>重置功能:</strong> 如果遇到问题或想重新开始，可以使用 "重置数据" 按钮恢复到默认配置。</li>
+        </ul>
+        <p>祝您玩得愉快！</p>
+    </div>
+    `;
+    const footer = `<button class="btn" id="ack-announcement">我已了解，不再提示</button>`;
+
+    showModal('announcementModal', '使用说明', content, footer);
+
+    // Add event listener to the acknowledgment button
+    $('#ack-announcement').addEventListener('click', () => {
+        localStorage.setItem('lottery.announcementSeen', 'true');
+        closeModal('announcementModal');
+    });
+}
+// --- MODIFICATION END ---
+
+
 // --- INITIALIZE APP ---
 loadData();
 generateBoard();
@@ -969,3 +1001,4 @@ renderPrizes();
 renderStashAndWinnersModule();
 renderRedemptionBoard();
 checkAndRenderModules();
+showAnnouncement(); // Call the announcement function on startup
