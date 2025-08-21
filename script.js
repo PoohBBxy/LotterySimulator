@@ -1,5 +1,4 @@
 (() => {
-    'use strict';
     // --- DATA & CONFIG ---
     const GRID_SIZE = 5;
     let NUM_PRIZES = 16;
