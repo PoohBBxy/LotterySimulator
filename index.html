@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>冠军系列返场</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+    <div class="header">
+        <div class="title">冠军系列返场</div>
+        <div class="sub">模拟器中奖记录不会发往仓库，仅供娱乐！本页面只做为抽奖概率模拟器使用，不涉及充值行为，不涉及赌博、博彩等违法行为。</div>
+    </div>
+
+    <div class="purchase-panel" id="purchase-controls">
+        <div class="purchase-card" data-cost="10" data-keys="1">
+            <div class="cost">10 <span>元</span></div>
+            <div class="desc">购买复活币x1 赠送抽奖钥匙x1</div>
+        </div>
+        <div class="purchase-card" data-cost="100" data-keys="11">
+            <div class="cost">100 <span>元</span></div>
+            <div class="desc">购买复活币x10 赠送抽奖钥匙x11</div>
+        </div>
+        <div class="purchase-card" data-cost="500" data-keys="55">
+            <div class="cost">500 <span>元</span></div>
+            <div class="desc">购买复活币x50 赠送抽奖钥匙x55</div>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="board" id="board"></div>
+</div>
+
+<div class="wrap" id="stash-winners-wrap"></div>
+
+<div class="wrap" id="redemption-section"></div>
+<div class="wrap hidden" id="lucky-chest-section"></div>
+<div class="wrap hidden" id="fragment-redemption-section"></div>
+
+<div class="wrap">
+    <div class="master-stats-panel">
+        <div class="stats-panel">
+            <div class="label">当前积分</div>
+            <div class="value" id="points-display">0</div>
+        </div>
+        <div class="stats-panel">
+            <div class="label">幸运宝箱</div>
+            <div class="value" id="chests-display">0</div>
+        </div>
+        <div class="stats-panel">
+            <div class="label">万能碎片</div>
+            <div class="value" id="fragments-display">0</div>
+        </div>
+        <div class="stats-panel">
+            <div class="label">累计抽奖</div>
+            <div class="value" id="draw-count-display">0</div>
+        </div>
+        <div class="stats-panel">
+            <div class="label">累计消费</div>
+            <div class="value" id="spending-display">¥ 0</div>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="panel">
+        <div class="controls">
+            <button class="btn secondary" id="btnSettings">全局设置</button>
+            <button class="btn secondary" id="btnEdit">编辑奖品</button>
+            <span id="btnEditRedemption_container"><button class="btn secondary" id="btnEditRedemption">编辑积分兑换</button></span>
+            <span id="btnEditChest_container" class="hidden"><button class="btn secondary" id="btnEditChest">编辑宝箱奖池</button></span>
+            <span id="btnEditFragment_container" class="hidden"><button class="btn secondary" id="btnEditFragment">编辑碎片兑换</button></span>
+            <button class="btn secondary" id="btnHistory">全部记录</button>
+            <button class="btn secondary" id="btnReset">重置数据</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-container"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
